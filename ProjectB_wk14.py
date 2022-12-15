@@ -3,8 +3,7 @@ import boto3
 dynamodb = boto3.resource(
     'dynamodb', 
     region_name='us-east-1',
-    aws_access_key_id='****************',
-    aws_secret_access_key='******************')
+
 
 table = dynamodb.create_table(
     TableName='online_users',

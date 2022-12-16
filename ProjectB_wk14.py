@@ -5,7 +5,8 @@ dynamodb = boto3.resource('dynamodb'),
 region_name = ('us-east-1'),
 
 
-table = dynamodb.create_table(
+
+table = dynamodb.create_table('online_users',
     AttributeDefinitions = [
         {
             'AttributeName': 'gamertag',

@@ -1,39 +1,39 @@
 import boto3
 
-dynamodb = boto3.resource(
-    'dynamodb', 
-    region_name='us-east-1',
+# boto3 AWS service
+dynamodb_table = boto3.resource('dynamodb'),
+region_name = ('us-east-1'),
 
 
-table = dynamodb.create_table(
-    TableName='online_users',
-    KeySchema=[
-        {
-            'AttributeName': 'gamertag',
-            'KeyType': 'HASH'  #Partition key
-        },
-        {
-            'AttributeName': 'system',
-            'KeyType': 'RANGE'  #Sort key
-        }
-    ],
-    AttributeDefinitions=[
+table = dynamodb_table.create_table (
+    AttributeDefinitions = [
         {
             'AttributeName': 'gamertag',
             'AttributeType': 'S'
         },
-        {
+        {    
             'AttributeName': 'system',
             'AttributeType': 'S'
         },
+    ],    
+        TableName='online_users',
+        KeySchema=[
+            {
+                'AttributeName': 'gamertag',
+                'KeyType': 'HASH'  # Partition key
+            },
+            {
+                'AttributeName': 'system',
+                'KeyType': 'RANGE'  # Sort key
+            }
+        ],
 
-    ],
+        
     ProvisionedThroughput={
         'ReadCapacityUnits': 10,
         'WriteCapacityUnits': 10
     }
 )
-
 
 
 print("Table status:", table.table_status)

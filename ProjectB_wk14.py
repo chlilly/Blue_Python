@@ -5,7 +5,7 @@ dynamodb = boto3.resource('dynamodb'),
 region_name = ('us-east-1'),
 
 
-table = dynamodb.create_table (
+table = dynamodb.create_table(
     AttributeDefinitions = [
         {
             'AttributeName': 'gamertag',
@@ -16,8 +16,8 @@ table = dynamodb.create_table (
             'AttributeType': 'S'
         },
     ],    
-        TableName='online_users',
-        KeySchema=[
+    TableName='online_users',
+    KeySchema=[
             {
                 'AttributeName': 'gamertag',
                 'KeyType': 'HASH'  # Partition key

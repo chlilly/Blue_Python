@@ -1,11 +1,9 @@
 from operator import itemgetter
 import boto3
 
-dynamodb = boto3.resource('dynamodb')
-table = dynamodb.table("online_users")
+dynamodb_table = boto3.resource('dynamodb')
+table = dynamodb_table.table("online_users")
 item = {'gamertag', 'system'}
-
-
 
 
 Item_1 = {'gamertag': 'Oldheadcity', 'system': 'Xbox', }

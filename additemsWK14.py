@@ -1,9 +1,9 @@
 from operator import itemgetter
 import boto3
 
-dynamodb_table = boto3.resource('dynamodb')
-table = dynamodb_table.table("online_users")
-item = {'gamertag', 'system'}
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.table('online_users')
+item = {'gamertag','system'}
 
 
 Item_1 = {'gamertag': 'Oldheadcity', 'system': 'Xbox', }
@@ -26,7 +26,7 @@ with table.batch_writer() as batch:
             Item={
                 'gamertag': item['gamertag'],
                 'system': item['system'],
-             
+
             }
         )
 

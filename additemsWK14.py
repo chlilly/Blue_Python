@@ -3,6 +3,10 @@ import boto3
 
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.table("online_users")
+item = {'gamertag', 'system'}
+
+
+
 
 Item_1 = {'gamertag': 'Oldheadcity', 'system': 'Xbox', }
 Item_2 = {'gamertag': 'Bigdub703', 'system': 'Xbox'}
@@ -20,11 +24,15 @@ add_items = [Item_1, Item_2, Item_3, Item_4,
 
 with table.batch_writer() as batch:
     for i in range(10):
-        batch.put_item(Item={
-                "gamertag": itemgetter=["gamertag"],
-                "system": itemgetter=["system"]}
+        batch.put_item(
+            Item={
+                'gamertag': item['gamertag'],
+                'system': item['system'],
+             
+            }
         )
- 
+
+
 items_to_delete = [Item_2, Item_10]
 
 with table.batch_writer() as batch:

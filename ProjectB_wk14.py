@@ -1,11 +1,11 @@
 import boto3
 
 # boto3 AWS service
-dynamodb_table = boto3.resource('dynamodb'),
+dynamodb = boto3.resource('dynamodb'),
 region_name = ('us-east-1'),
 
 
-table = dynamodb_table.create_table (
+table = dynamodb.create_table (
     AttributeDefinitions = [
         {
             'AttributeName': 'gamertag',

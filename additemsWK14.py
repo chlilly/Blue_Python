@@ -1,5 +1,5 @@
 import boto3 
-
+# Add items to table. 
 dynamodb = boto3.client('dynamodb')
 # Insert data within the Item variable. 
 response = dynamodb.put_item(

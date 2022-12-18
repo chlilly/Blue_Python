@@ -1,7 +1,7 @@
 import boto3 
 
 dynamodb = boto3.client('dynamodb')
-# Insert data within the Item_3 variable. 
+# Insert data within the Item variable. 
 response = dynamodb.put_item(
     
 Item_1={'Artist': 'S': 'The Cashmere Collective','SongTitle': 'S': 'Smoother'}

@@ -1,4 +1,4 @@
-import boto3
+import boto3 
 
 dynamodb = boto3.client('dynamodb')
 # Insert data within the Item_3 variable. 

@@ -1,40 +1,23 @@
 import boto3
 
-# boto3 AWS service
-dynamodb = boto3.resource('dynamodb'),
-region_name = ('us-east-1'),
+dynamodb = boto3.resource('dynamodb')
 
+table = dynamodb.create_table(
 
-
-table = dynamodb.create_table('online_users',
-    AttributeDefinitions = [
-        {
-            'AttributeName': 'gamertag',
-            'AttributeType': 'S'
-        },
-        {    
-            'AttributeName': 'system',
-            'AttributeType': 'S'
-        },
-    ],    
-    TableName='online_users',
-    KeySchema=[
-            {
-                'AttributeName': 'gamertag',
-                'KeyType': 'HASH'  # Partition key
-            },
-            {
-                'AttributeName': 'system',
-                'KeyType': 'RANGE'  # Sort key
-            }
+     KeySchema=[
+            {"AttributeName": "Album", "KeyType": "HASH"},
+            {"AttributeName": "SongTitle", "KeyType": "RANGE"},
         ],
-
-        
+        AttributeDefinitions=[
+            {"AttributeName": "Album", "AttributeType": "S"},
+            {"AttributeName": "SongTitle", "AttributeType": "S"},
+        ],
     ProvisionedThroughput={
         'ReadCapacityUnits': 10,
-        'WriteCapacityUnits': 10
-    }
-)
+        'WriteCapacityUnits': 10,
+    },
+    TableName='Grooves'
 
+),
 
-print("Table status:", table.table_status)
+print(table)
